@@ -202,7 +202,7 @@
             constructor({ pageUrlCheckInterval = 50, logging = false } = {}) {
                 super();
                 this.stashBoxUrl = 'https://stashdb.org'
-                this.stashUrl = 'http://localhost:9999';
+                this.stashUrl = 'http://192.168.0.252:9999';
                 this.loggedIn = false;
                 this.userName = null;
                 this.log = new Logger(logging);
@@ -792,7 +792,7 @@
                             <div class="field">
                                 <label class="label">Stash Address</label>
                                 <div class="control">
-                                    <input id="address" class="input" type="text" placeholder="Stash Address (http://localhost:9999)" value="">
+                                    <input id="address" class="input" type="text" placeholder="Stash Address (http://192.168.0.252:9999)" value="">
                                 </div>
                             </div>
                       
@@ -846,11 +846,11 @@
                             await GM.setValue('createLocalPerformers', localPerformerChkBx.checked || false);
                         });
 
-                        this.stashUrl = await GM.getValue('stashAddress', 'http://localhost:9999');
+                        this.stashUrl = await GM.getValue('stashAddress', 'http://192.168.0.252:9999');
                         const stashAddress = document.getElementById('address');
                         stashAddress.value = this.stashUrl;
                         stashAddress.addEventListener('change', async () => {
-                            await GM.setValue('stashAddress', stashAddress.value || 'http://localhost:9999');
+                            await GM.setValue('stashAddress', stashAddress.value || 'http://192.168.0.252:9999');
                         });
 
                         this.stashApiKey = await GM.getValue('stashApiKey', '');
